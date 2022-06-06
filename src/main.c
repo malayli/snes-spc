@@ -1,28 +1,13 @@
 #include <snes.h>
-//#include "soundbank.h"
 
 extern char snesfont;
 
-// soundbank that are declared in soundbank.asm
-extern char SOUNDBANK__0,SOUNDBANK__1;
-
 //---------------------------------------------------------------------------------
 int main(void) {
-    // Initialize sound engine (take some time)
-    spcBoot();
-
     // Initialize SNES
     consoleInit();
 
-    // Set give soundbank
-    spcSetBank(&SOUNDBANK__1);
-    spcSetBank(&SOUNDBANK__0);
-
-    // allocate around 10K of sound ram (39 256-byte blocks)
-    spcAllocateSoundRegion(39);
-
-    // Load music
-    spcLoad(0);
+    LoadSPC();
 
     // Initialize text console with our font
     consoleInitText(0, 0, &snesfont);
@@ -39,15 +24,8 @@ int main(void) {
     // Wait for nothing :P
     setScreenOn();
 
-    // Play file from the beginning
-    spcPlay(0);
-
     while(1) {
         WaitForVBlank();
-
-        // Update music / sfx stream and wait vbl
-        spcProcess();
     }
     return 0;
 }
-
