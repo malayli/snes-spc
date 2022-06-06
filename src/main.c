@@ -1,5 +1,5 @@
 #include <snes.h>
-#include "soundbank.h"
+//#include "soundbank.h"
 
 extern char snesfont;
 
@@ -22,7 +22,7 @@ int main(void) {
     spcAllocateSoundRegion(39);
 
     // Load music
-    spcLoad(MOD_WHATISLOVE);
+    spcLoad(0);
     
     // Initialize text console with our font
 	consoleInitText(0, 0, &snesfont);
