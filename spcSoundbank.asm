@@ -130,7 +130,7 @@
  .define musicSourceAddr $00fd
  
  ; The SPC file from which we read our data.
- .define spcFile "turtlepower.spc"
+ .define spcFile "test000.spc"
  
  ; The address in SPC RAM where we put our 15-byte startup routine.
  .define spcFreeAddr $ffa0
